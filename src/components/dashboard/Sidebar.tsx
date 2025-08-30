@@ -7,21 +7,25 @@ import {
   CreditCard, 
   Settings,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  Calculator
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useUser } from "@/context/UserContext";
 
 const menuItems = [
   { icon: LayoutDashboard, label: "Dashboard", path: "/personal" },
   { icon: PieChart, label: "Portfolio", path: "/portfolio" },
   { icon: Lightbulb, label: "Insights", path: "/insights" },
   { icon: CreditCard, label: "Loans", path: "/loans" },
+  { icon: Calculator, label: "Financial Analysis", path: "/financial-analysis" },
   { icon: Settings, label: "Settings", path: "/settings" },
 ];
 
 export function Sidebar() {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isOpen, setIsOpen] = useState(false); // mobile drawer
+  const { profile } = useUser();
 
   // Listen for header toggle on mobile
   useEffect(() => {
@@ -43,13 +47,14 @@ export function Sidebar() {
       <div className={`${isCollapsed ? 'md:w-20' : 'md:w-64'} w-64 h-screen bg-card border-r border-border/50 transition-smooth flex flex-col fixed left-0 top-0 z-50 
       ${isOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0`}>
         {/* Header */}
-        <div className="p-6 border-b border-border/50">
+        <div className={`${isCollapsed ? 'p-4' : 'p-6'} border-b border-border/50`}>
           <div className="flex items-center justify-between">
-            {!isCollapsed && (
-              <h1 className="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                NovaFinance
-              </h1>
-            )}
+            <div className={`flex items-center ${isCollapsed ? '' : 'space-x-2'}`}>
+              <img src="/logo.jpg" alt="FINEO logo" className={`${isCollapsed ? 'h-7 w-7' : 'h-8 w-8'} rounded-lg object-cover mx-auto`} />
+              {!isCollapsed && (
+                <span className="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text">FINEO</span>
+              )}
+            </div>
             <Button
               variant="ghost"
               size="sm"

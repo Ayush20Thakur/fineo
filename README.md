@@ -1,73 +1,164 @@
-# Welcome to your Lovable project
+# Fineo - Nova Financial Glow
 
-## Project info
+A comprehensive financial analysis platform powered by AI, featuring PDF passbook parsing, credit scoring, fairness auditing, and AI-powered financial advisory services.
 
-**URL**: https://lovable.dev/projects/2d9dc360-2685-4daa-b895-5aa0bc84f1d6
+## 🌟 Features
 
-## How can I edit this code?
+- **📄 PDF Passbook Analysis**: Upload and parse bank passbook PDFs to extract transaction data
+- **📊 Financial Dashboard**: Comprehensive analytics and insights from transaction data
+- **🤖 AI-Powered Forecasting**: Predict future cashflow patterns using advanced algorithms
+- **⚖️ FairScore System**: Ethical credit scoring with bias detection and fairness metrics
+- **🔍 Fairness Audit**: Statistical parity and equal opportunity analysis
+- **💡 IBM Granite AI Advisor**: Get personalized financial advice powered by IBM's Granite AI
+- **🔐 Private Ledger**: Secure audit trail with cryptographic verification
 
-There are several ways of editing your application.
+## 🚀 Quick Start
 
-**Use Lovable**
+### Prerequisites
+- Node.js (v16 or higher)
+- Python 3.8+
+- npm or yarn
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/2d9dc360-2685-4daa-b895-5aa0bc84f1d6) and start prompting.
+### Installation
 
-Changes made via Lovable will be committed automatically to this repo.
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/fineo.git
+   cd fineo
+   ```
 
-**Use your preferred IDE**
+2. **Install dependencies**
+   ```bash
+   # Install Node.js dependencies
+   npm install
+   
+   # Install Python dependencies
+   pip install -r api_requirements.txt
+   ```
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+3. **Configure environment variables**
+   ```bash
+   # Copy the example environment file
+   cp .env.example .env
+   
+   # Edit .env with your IBM Cloud credentials
+   # IBM_CLOUD_API_KEY=your_api_key_here
+   # IBM_PROJECT_ID=your_project_id_here
+   ```
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+4. **Start the application**
+   ```bash
+   # Option 1: Use the batch script (Windows)
+   start_dev.bat
+   
+   # Option 2: Start manually
+   # Terminal 1: Start Python API Server
+   python api_server.py
+   
+   # Terminal 2: Start React App
+   npm run dev
+   ```
 
-Follow these steps:
+## 📍 Access Points
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+- **Frontend Application**: http://localhost:8086
+- **API Server**: http://localhost:8000
+- **API Documentation**: http://localhost:8000/docs
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## 🛠️ Technology Stack
 
-# Step 3: Install the necessary dependencies.
-npm i
+### Frontend
+- **React 18** with TypeScript
+- **Vite** for fast development
+- **Tailwind CSS** for styling
+- **shadcn/ui** for UI components
+- **Recharts** for data visualization
+- **React Router** for navigation
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+### Backend
+- **FastAPI** for REST API
+- **Python 3.8+** with modern async/await
+- **pandas** for data processing
+- **scikit-learn** for machine learning
+- **IBM Watsonx AI** for Granite AI integration
+- **pdfplumber** for PDF parsing
+
+## 📊 API Endpoints
+
+- `GET /health` - API health check and Granite status
+- `POST /upload-pdf` - Upload and parse PDF passbook
+- `GET /sample-transactions` - Load sample transaction data
+- `POST /analyze-transactions` - Analyze transaction patterns
+- `POST /calculate-fairscore` - Calculate FairScore rating
+- `POST /forecast-cashflow` - Generate cashflow predictions
+- `POST /fairness-audit` - Run bias detection audit
+- `POST /publish-audit` - Publish audit to private ledger
+- `POST /ask-advisor` - Get AI-powered financial advice
+
+## 🔧 Configuration
+
+### Environment Variables
+
+Create a `.env` file in the root directory:
+
+```env
+# IBM Cloud Credentials for Granite AI
+IBM_CLOUD_API_KEY=your_api_key_here
+IBM_PROJECT_ID=your_project_id_here
+IBM_REGION=https://eu-de.ml.cloud.ibm.com
+GRANITE_MODEL_ID=ibm/granite-3-8b-instruct
+
+# Private Ledger Configuration
+PRIVATE_LEDGER_SALT=your_salt_here
+PRIVATE_LEDGER_ENC_KEY=your_encryption_key_here
 ```
 
-**Edit a file directly in GitHub**
+## 🧪 Testing
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+# Run frontend tests
+npm test
 
-**Use GitHub Codespaces**
+# Test backend API
+python test_backend.py
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 📁 Project Structure
 
-## What technologies are used for this project?
+```
+fineo/
+├── src/                    # React frontend source
+│   ├── components/         # Reusable UI components
+│   ├── pages/             # Page components
+│   ├── hooks/             # Custom React hooks
+│   └── lib/               # Utility functions
+├── backend/               # Python backend services
+│   └── app/
+│       └── services/      # Core business logic
+├── public/                # Static assets
+├── api_server.py          # FastAPI server entry point
+├── package.json           # Node.js dependencies
+└── api_requirements.txt   # Python dependencies
+```
 
-This project is built with:
+## 🤝 Contributing
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-## How can I deploy this project?
+## 📄 License
 
-Simply open [Lovable](https://lovable.dev/projects/2d9dc360-2685-4daa-b895-5aa0bc84f1d6) and click on Share -> Publish.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Can I connect a custom domain to my Lovable project?
+## 🙏 Acknowledgments
 
-Yes, you can!
+- IBM Watsonx AI for Granite AI capabilities
+- shadcn/ui for beautiful UI components
+- The open-source community for amazing tools and libraries
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 📞 Support
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+For support, email support@fineo.com or create an issue in this repository.

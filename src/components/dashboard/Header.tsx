@@ -5,11 +5,13 @@ import { ThemeToggle } from "../ThemeToggle";
 import { NotificationCenter } from "./NotificationCenter";
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
+import { useUser } from "@/context/UserContext";
 
 export function Header() {
   const location = useLocation();
   const isSubPage = !['/personal', '/dashboard'].includes(location.pathname);
   const [dateRange, setDateRange] = useState("Last 30 days");
+  const { profile } = useUser();
   
   const handleDateRangeChange = () => {
     const ranges = ["Last 7 days", "Last 30 days", "Last 90 days", "Last 6 months", "Last year"];
@@ -48,7 +50,7 @@ export function Header() {
           </Link>
           <div>
             <h1 className="text-xl md:text-2xl font-bold text-foreground">Dashboard</h1>
-            <p className="hidden sm:block text-sm text-muted-foreground">Welcome back, John</p>
+            <p className="hidden sm:block text-sm text-muted-foreground">Welcome back, {profile.firstName || 'User'}</p>
           </div>
         </div>
 

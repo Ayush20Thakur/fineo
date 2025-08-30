@@ -22,10 +22,18 @@ import {
 import { Link } from "react-router-dom";
 import { Sidebar } from "@/components/dashboard/Sidebar";
 import { Header } from "@/components/dashboard/Header";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useUser } from "@/context/UserContext";
+import { useToast } from "@/hooks/use-toast";
 
 const Settings = () => {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const { profile, updateProfile, password, updatePassword } = useUser();
+  const { toast } = useToast();
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
+  const [currentPassword, setCurrentPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   useEffect(() => {
     const handler = (e: any) => {

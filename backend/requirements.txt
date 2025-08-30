@@ -1,0 +1,13 @@
+streamlit
+pandas
+numpy
+pdfplumber
+statsmodels
+scikit-learn
+joblib
+cryptography
+web3
+ibm-watsonx-ai
+matplotlib
+python-dotenv
+reportlab
