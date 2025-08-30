@@ -1,6 +1,7 @@
 from fastapi import FastAPI, UploadFile, File, HTTPException, Body
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
+from fastapi.staticfiles import StaticFiles
 import uvicorn
 import os
 import json
@@ -269,5 +270,11 @@ async def ask_advisor(req: AdvisorRequest):
 async def granite_status():
     return {"granite_ready": granite_ready(), "has_api_key": bool(env_vars.get('IBM_CLOUD_API_KEY')), "has_project_id": bool(env_vars.get('IBM_PROJECT_ID')), "region": env_vars.get('IBM_REGION', 'https://eu-de.ml.cloud.ibm.com'), "model_id": env_vars.get('GRANITE_MODEL_ID', 'ibm/granite-3-8b-instruct')}
 
+# Mount static files for frontend (if dist directory exists)
+import os
+if os.path.exists("dist"):
+    app.mount("/", StaticFiles(directory="dist", html=True), name="static")
+
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run(app, host="0.0.0.0", port=port)

@@ -1,0 +1,34 @@
+services:
+  # Backend API Service
+  - type: web
+    name: fineo-api
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python api_server.py
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: IBM_CLOUD_API_KEY
+        sync: false
+      - key: IBM_PROJECT_ID
+        sync: false
+      - key: IBM_REGION
+        value: https://eu-de.ml.cloud.ibm.com
+      - key: GRANITE_MODEL_ID
+        value: ibm/granite-3-8b-instruct
+      - key: PRIVATE_LEDGER_SALT
+        sync: false
+      - key: PRIVATE_LEDGER_ENC_KEY
+        sync: false
+
+  # Frontend Static Site
+  - type: static
+    name: fineo-frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    envVars:
+      - key: VITE_API_BASE_URL
+        fromService:
+          type: web
+          name: fineo-api
+          property: host
