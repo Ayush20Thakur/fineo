@@ -71,7 +71,7 @@ interface AdvisorResponse {
   route: string;
 }
 
-const API_BASE = 'http://localhost:8000';
+import { API_BASE } from '../config/api';
 const CHART_COLORS = ['#8884d8', '#82ca9d', '#ffc658', '#ff7300', '#8dd1e1', '#d084d0', '#ff8042', '#00c49f'];
 
 const FinancialAnalysis: React.FC = () => {
