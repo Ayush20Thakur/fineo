@@ -43,7 +43,7 @@ const Landing = () => {
                     Log in
                   </Button>
                 </Link>
-                <Link to="/personal">
+                <Link to="/signup">
                   <Button variant="premium" className="px-6 md:hover:scale-105 transform transition-all shadow-lg hover:shadow-glow">
                     Sign up
                   </Button>
@@ -105,7 +105,7 @@ const Landing = () => {
             <Link to="/login" onClick={() => setMobileOpen(false)}>
               <Button variant="ghost" className="w-full justify-start">Log in</Button>
             </Link>
-            <Link to="/personal" onClick={() => setMobileOpen(false)}>
+            <Link to="/signup" onClick={() => setMobileOpen(false)}>
               <Button variant="premium" className="w-full">Sign up</Button>
             </Link>
           </nav>
@@ -155,10 +155,10 @@ const Landing = () => {
           </div>
 
           <div className="flex justify-center">
-            <Link to="/personal">
-              <Button 
-                variant="premium" 
-                size="lg" 
+            <Link to="/signup">
+              <Button
+                variant="premium"
+                size="lg"
                 className="px-12 py-6 text-lg font-semibold group md:hover:scale-110 transform transition-all duration-300 shadow-2xl hover:shadow-glow motion-safe:animate-pulse"
               >
                 Go Financing
@@ -322,7 +322,7 @@ const Landing = () => {
               </div>
               
               <div className="mt-8 pt-6 border-t border-border/30">
-                <Link to="/personal">
+                <Link to="/signup">
                   <Button variant="premium" className="w-full md:hover:scale-105 transform transition-all shadow-lg hover:shadow-glow">
                     Start Your Journey
                     <ArrowRight className="ml-2 w-4 h-4" />
